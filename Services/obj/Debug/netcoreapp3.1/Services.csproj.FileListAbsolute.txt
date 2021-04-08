@@ -1,0 +1,26 @@
+C:\Users\Muhammad Azam\source\repos\New folder\NewRepo\Services\bin\Debug\netcoreapp3.1\Services.deps.json
+C:\Users\Muhammad Azam\source\repos\New folder\NewRepo\Services\bin\Debug\netcoreapp3.1\Services.runtimeconfig.json
+C:\Users\Muhammad Azam\source\repos\New folder\NewRepo\Services\bin\Debug\netcoreapp3.1\Services.runtimeconfig.dev.json
+C:\Users\Muhammad Azam\source\repos\New folder\NewRepo\Services\bin\Debug\netcoreapp3.1\Services.dll
+C:\Users\Muhammad Azam\source\repos\New folder\NewRepo\Services\bin\Debug\netcoreapp3.1\Services.pdb
+C:\Users\Muhammad Azam\source\repos\New folder\NewRepo\Services\bin\Debug\netcoreapp3.1\Entities.dll
+C:\Users\Muhammad Azam\source\repos\New folder\NewRepo\Services\bin\Debug\netcoreapp3.1\Entities.pdb
+C:\Users\Muhammad Azam\source\repos\New folder\NewRepo\Services\obj\Debug\netcoreapp3.1\Services.csprojAssemblyReference.cache
+C:\Users\Muhammad Azam\source\repos\New folder\NewRepo\Services\obj\Debug\netcoreapp3.1\Services.AssemblyInfoInputs.cache
+C:\Users\Muhammad Azam\source\repos\New folder\NewRepo\Services\obj\Debug\netcoreapp3.1\Services.AssemblyInfo.cs
+C:\Users\Muhammad Azam\source\repos\New folder\NewRepo\Services\obj\Debug\netcoreapp3.1\Services.csproj.CopyComplete
+C:\Users\Muhammad Azam\source\repos\New folder\NewRepo\Services\obj\Debug\netcoreapp3.1\Services.dll
+C:\Users\Muhammad Azam\source\repos\New folder\NewRepo\Services\obj\Debug\netcoreapp3.1\Services.pdb
+E:\2021\Pakistan\Azad\Ascent\Services\bin\Debug\netcoreapp3.1\Services.deps.json
+E:\2021\Pakistan\Azad\Ascent\Services\bin\Debug\netcoreapp3.1\Services.runtimeconfig.json
+E:\2021\Pakistan\Azad\Ascent\Services\bin\Debug\netcoreapp3.1\Services.runtimeconfig.dev.json
+E:\2021\Pakistan\Azad\Ascent\Services\bin\Debug\netcoreapp3.1\Services.dll
+E:\2021\Pakistan\Azad\Ascent\Services\bin\Debug\netcoreapp3.1\Services.pdb
+E:\2021\Pakistan\Azad\Ascent\Services\bin\Debug\netcoreapp3.1\Entities.dll
+E:\2021\Pakistan\Azad\Ascent\Services\bin\Debug\netcoreapp3.1\Entities.pdb
+E:\2021\Pakistan\Azad\Ascent\Services\obj\Debug\netcoreapp3.1\Services.csprojAssemblyReference.cache
+E:\2021\Pakistan\Azad\Ascent\Services\obj\Debug\netcoreapp3.1\Services.AssemblyInfoInputs.cache
+E:\2021\Pakistan\Azad\Ascent\Services\obj\Debug\netcoreapp3.1\Services.AssemblyInfo.cs
+E:\2021\Pakistan\Azad\Ascent\Services\obj\Debug\netcoreapp3.1\Services.csproj.CopyComplete
+E:\2021\Pakistan\Azad\Ascent\Services\obj\Debug\netcoreapp3.1\Services.dll
+E:\2021\Pakistan\Azad\Ascent\Services\obj\Debug\netcoreapp3.1\Services.pdb

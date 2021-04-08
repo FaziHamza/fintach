@@ -1,0 +1,1087 @@
+﻿@model Entities.tblUser
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+
+<style>
+    /*wizard*/
+    /*wizard*/
+    #heading {
+        text-transform: uppercase;
+        color: #673AB7;
+        font-weight: normal
+    }
+
+    #msform {
+        text-align: center;
+        position: relative;
+        margin-top: 20px
+    }
+
+        #msform fieldset {
+            background: white;
+            border: 0 none;
+            border-radius: 0.5rem;
+            box-sizing: border-box;
+            width: 100%;
+            margin: 0;
+            padding-bottom: 20px;
+            position: relative
+        }
+
+    .form-card {
+        text-align: left
+    }
+
+    #msform fieldset:not(:first-of-type) {
+        display: none
+    }
+
+    #msform input,
+    #msform textarea {
+        border: 1px solid #ccc !important;
+        border-radius: 0px !important;
+        margin-bottom: 25px !important;
+        margin-top: 2px !important;
+        box-sizing: border-box !important;
+        font-family: montserrat !important;
+        color: #fff !important;
+        /* background-color: #ECEFF1;*/
+        font-size: 16px !important;
+        letter-spacing: 1px !important;
+    }
+
+        #msform input:focus,
+        #msform textarea:focus {
+            -moz-box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            border: 2px solid #009efb !important;
+            outline-width: 0 !important;
+        }
+
+    #msform .action-button {
+        width: 100px;
+        background: #17a2b8;
+        font-weight: bold;
+        color: white;
+        border: 0 none;
+        border-radius: 0px;
+        cursor: pointer;
+        padding: 10px 5px;
+        margin: 10px 0px 10px 5px;
+        float: right
+    }
+
+        #msform .action-button:hover,
+        #msform .action-button:focus {
+            background-color: #009efb;
+        }
+
+    #msform .action-button-previous {
+        width: 100px;
+        background: #616161;
+        font-weight: bold;
+        color: white;
+        border: 0 none;
+        border-radius: 0px;
+        cursor: pointer;
+        padding: 10px 5px;
+        margin: 10px 5px 10px 0px;
+        float: right
+    }
+
+        #msform .action-button-previous:hover,
+        #msform .action-button-previous:focus {
+            background-color: #000000
+        }
+
+    .card {
+        z-index: 0;
+        border: none;
+        position: relative
+    }
+
+    .fs-title {
+        font-size: 25px;
+        color: #17a2b8;
+        margin-bottom: 15px;
+        font-weight: normal;
+        text-align: left
+    }
+
+    .purple-text {
+        color: #673AB7;
+        font-weight: normal
+    }
+
+    .steps {
+        font-size: 25px;
+        color: gray;
+        margin-bottom: 10px;
+        font-weight: normal;
+        text-align: right
+    }
+
+    .fieldlabels {
+        color: black;
+        text-align: left
+    }
+
+    #progressbar {
+        margin-right: 36px !important;
+        overflow: hidden;
+        color: grey;
+    }
+
+        #progressbar .active {
+            color: #17a2b8 !important;
+        }
+
+        #progressbar li {
+            list-style-type: none;
+            font-size: 15px;
+            width: 20%;
+            float: left;
+            position: relative;
+            font-weight: 400
+        }
+
+        #progressbar #account:before {
+            font-family: FontAwesome;
+            content: "\f13e";
+        }
+
+        #progressbar #personal:before {
+            font-family: FontAwesome;
+            content: "\f007"
+        }
+
+        #progressbar #payment:before {
+            font-family: FontAwesome;
+            content: "\f030"
+        }
+
+        #progressbar #confirm:before {
+            font-family: FontAwesome;
+            content: "\f00c"
+        }
+
+        #progressbar li:before {
+            width: 50px;
+            height: 50px;
+            line-height: 45px;
+            display: block;
+            font-size: 20px;
+            color: #ffffff;
+            background: lightgray;
+            border-radius: 50%;
+            margin: 0 auto 10px auto;
+            padding: 2px
+        }
+
+        #progressbar li:after {
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: lightgray;
+            position: absolute;
+            left: 0;
+            top: 25px;
+            z-index: -1
+        }
+
+        #progressbar li.active:before,
+        #progressbar li.active:after {
+            background: #17a2b8;
+        }
+
+    .progress {
+        height: 20px
+    }
+
+    .progress-bar {
+        background-color: #673AB7
+    }
+
+    .fit-image {
+        width: 100%;
+        object-fit: cover
+    }
+
+    /*p, span, li {
+        color: black !important;
+    }*/
+
+    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+        border-top: 2px solid #17a2b8;
+        border-left: 2px solid #17a2b8;
+        border-right: 2px solid #17a2b8;
+        font-weight: bold;
+        color: #17a2b8;
+    }
+</style>
+
+
+
+
+<div class="container-fluid">
+    <br />
+    <form id="msform" asp-action="Registration" asp-controller="Account" enctype="multipart/form-data" method="post">
+        <div class="container-fluid">
+            <!-- progressbar -->
+            <ul id="progressbar">
+                <li class="active" id="account"><strong>Account Details</strong></li>
+                <li id="personal"><strong>Business Details</strong></li>
+                <li id="personal"><strong>Subscriptions</strong></li>
+                <li id="payment"><strong>Security Setup</strong></li>
+                <li id="confirm"><strong>Terms-Agreement</strong></li>
+
+            </ul>
+        </div>
+
+        <div class="container">
+            <div class="">
+                <fieldset class="p-3">
+                    <div class="form-card">
+                        <div class="row">
+                            <div class="col-12">
+                                <h2 class="fs-title"><strong>Step 1</strong></h2>
+                            </div>
+
+                        </div>
+
+                        <!--tab begin-->
+                        @*<nav>
+                                <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Account Details</a>
+                                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Business Account Resgistration </a>
+
+                                </div>
+                            </nav>*@
+                        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                            <!--tab content 1 start-->
+                            @*<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">*@
+
+                            <div style="background-color:#17a2b8;padding:10px; border-radius:5px;">
+                                <span style="color:white;"><strong style="font-size:18px;">Wellcome</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</span>
+                            </div>
+
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <a href="#" class="fs-title" data-toggle="popover" data-content="Some content" data-trigger="hover"><strong>Account Details?</strong></a>
+                                        </div>
+                                        <div class="col-4">
+                                            <p class="float-right" style="color:red !important;">*Required</p>
+                                        </div>
+
+                                    </div>
+                                    <hr />
+
+                                    <div class="row clearfix form-group">
+                                        <div class="col-md-4">
+                                            <span>Email</span>
+                                            <input type="email" asp-for="Email" required="" class="form-control" placeholder="Email" />
+                                            <span asp-validation-for="Email" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span>Password</span>
+                                            <input type="password" asp-for="Password" required="" class="form-control" placeholder="Password" />
+                                            <span asp-validation-for="Password" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span>Confirm Password</span>
+                                            <input type="password" required="" class="form-control" id="ConfirmPassword" placeholder="Confirm Password" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <a href="#" class="fs-title" data-toggle="popover" data-content="Some content" data-trigger="hover"><strong>Identifiaction?</strong></a>
+                                        </div>
+                                        <div class="col-4">
+                                            <p class="float-right" style="color:red !important;">*Required</p>
+                                        </div>
+
+                                    </div>
+                                    <hr />
+
+                                    <div class="row clearfix form-group">
+                                        <div class="col-md-4">
+                                            <span>Name</span>
+                                            <input type="text" asp-for="tblIdentifiaction.Name" required="" class="form-control" placeholder="Name" />
+                                            <span asp-validation-for="tblIdentifiaction.Name" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span>Middle Name</span>
+                                            <input type="text" asp-for="tblIdentifiaction.MiddleName" required="" class="form-control" placeholder="Name" />
+                                            <span asp-validation-for="tblIdentifiaction.MiddleName" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span>Last Name</span>
+                                            <input type="text" asp-for="tblIdentifiaction.LastName" required="" class="form-control" placeholder="Name" />
+                                            <span asp-validation-for="tblIdentifiaction.LastName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row clearfix form-group">
+                                        <div class="col-md-4">
+                                            <span>Select Suffix</span>
+                                            <select class="form-control" required="" asp-for="tblIdentifiaction.Suffix">
+                                                <option>lorem ipsum</option>
+                                                <option>lorem ipsum</option>
+                                                <option>lorem ipsum</option>
+                                            </select>
+                                            <span asp-validation-for="tblIdentifiaction.Suffix" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span>DOB</span>
+                                            <input type="datetime-local" asp-for="tblIdentifiaction.DOB" required="" class="form-control" placeholder="Name" />
+                                            <span asp-validation-for="tblIdentifiaction.DOB" class="text-danger"></span>
+
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span>Gender</span>
+                                            <select class="form-control" required="" asp-for="tblIdentifiaction.Gender">
+                                                <option>Male</option>
+                                                <option>Female</option>
+                                            </select>
+                                            <span asp-validation-for="tblIdentifiaction.Gender" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group clearfix">
+                                        <div class="col-md-4">
+                                            <span>Ethencity</span>
+                                            <input type="text" asp-for="tblIdentifiaction.Ethencity" required="" class="form-control" placeholder="Name" />
+                                            <span asp-validation-for="tblIdentifiaction.Ethencity" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span>Government ID Name</span>
+                                            <input type="text" asp-for="tblIdentifiaction.GovernmentName" required="" class="form-control" placeholder="Name" />
+                                            <span asp-validation-for="tblIdentifiaction.GovernmentName" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span>Attache the government Issued ID that reflects required* identification info.</span>
+                                            <input type="file" asp-for="tblIdentifiaction.FilePath" required="" />
+                                            <span asp-validation-for="tblIdentifiaction.FilePath" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a href="#" class="fs-title" data-toggle="popover" data-content="Some content" data-trigger="hover"><strong>Residence?</strong></a>
+                                            <hr />
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row form-group clearfix">
+                                        <div class="col-md-4">
+                                            <span>Country Of Citzenship</span>
+                                            <input type="text" class="form-control" asp-for="tblResidence.CitzenshipCountry" required="" placeholder="Name" />
+                                            <span asp-validation-for="tblResidence.CitzenshipCountry" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span>Residing Country</span>
+                                            <select class="form-control" required="" asp-for="tblResidence.ResidingCountry">
+                                                <option>lorem ipsum</option>
+                                                <option>lorem ipsum</option>
+                                                <option>lorem ipsum</option>
+                                            </select>
+                                            <span asp-validation-for="tblResidence.ResidingCountry" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span>Street Address</span>
+                                            <input type="text" class="form-control" required="" asp-for="tblResidence.StreetAddress" placeholder="Name" />
+                                            <span asp-validation-for="tblResidence.StreetAddress" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group clearfix">
+                                        <div class="col-md-4">
+                                            <span>Suit/apt</span>
+                                            <input type="text" required="" class="form-control" asp-for="tblResidence.SuitApt" placeholder="Name" />
+                                            <span asp-validation-for="tblResidence.SuitApt" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span>State/Province</span>
+                                            <select class="form-control" required="" asp-for="tblResidence.StateProvince">
+                                                <option>lorem ipsum</option>
+                                                <option>lorem ipsum</option>
+                                                <option>lorem ipsum</option>
+                                            </select>
+                                            <span asp-validation-for="tblResidence.StateProvince" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span>City</span>
+                                            <select class="form-control" required="" asp-for="tblResidence.City">
+                                                <option>lorem ipsum</option>
+                                                <option>lorem ipsum</option>
+                                                <option>lorem ipsum</option>
+                                            </select>
+                                            <span asp-validation-for="tblResidence.City" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a href="#" class="fs-title" data-toggle="popover" data-content="Some content" data-trigger="hover"><strong>Contact Info?</strong></a>
+                                            <hr />
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <span>Primary Email</span>
+                                            <input type="email" class="form-control" asp-for="tblContactInfoAccountDetails.PrimaryEmail" required="required" placeholder="Name" />
+                                            <span asp-validation-for="tblContactInfoAccountDetails.PrimaryEmail" class="text-danger"></span>
+                                            <span>Primary Phone</span>
+                                            <input type="number" required="" class="form-control" asp-for="tblContactInfoAccountDetails.PrimaryPhone" placeholder="Name" />
+                                            <span asp-validation-for="tblContactInfoAccountDetails.PrimaryPhone" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span>Secondary Email</span>
+                                            <input type="email" required="" class="form-control" asp-for="tblContactInfoAccountDetails.SecondaryEmail" placeholder="Name" />
+                                            <span asp-validation-for="tblContactInfoAccountDetails.SecondaryEmail" class="text-danger"></span>
+                                            <span>Secondary Phone</span>
+                                            <input type="number" required="" class="form-control" asp-for="tblContactInfoAccountDetails.SecondaryPhone" placeholder="Name" />
+                                            <span asp-validation-for="tblContactInfoAccountDetails.SecondaryPhone" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <span>Postal/Zip Code</span>
+                                            <input type="text" required="" asp-for="tblContactInfoAccountDetails.PostalCode" class="form-control" placeholder="Postal/Zip Code" />
+                                            <span asp-validation-for="tblContactInfoAccountDetails.PostalCode" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <small>Attache the government Issued ID that reflects required* Residental info.</small>
+                                            <input type="file" required="" asp-for="tblContactInfoAccountDetails.FilePath" class="form-control" />
+                                            <span asp-validation-for="tblContactInfoAccountDetails.FilePath" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            @*</div>*@
+                            <!--tab content 1 end-->
+                            <!--tab content 2 start-->
+                            @*<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                    <h1>Business Details Registration</h1>
+                                </div>*@
+                            <!--tab content 1 start-->
+                        </div>
+                        <!--tab End-->
+                    </div>
+                    @*<input type="button" name="next" class="next action-button" value="Next" />*@
+                    <button type="button" name="next" class="next action-button">Next</button>
+                    <input type="button" name="next" class="next action-button" value="Save for latter" style="width:130px" />
+                </fieldset>
+                <fieldset class="p-5">
+                    <div class="form-card">
+                        <div class="row">
+                            <div class="col-12">
+                                <h2 class="fs-title"><strong>Step 2</strong></h2>
+                            </div>
+
+                        </div>
+
+                        <!--tab begin-->
+                        @*<nav>
+                                <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home-two" role="tab" aria-controls="nav-home" aria-selected="true">Business Details</a>
+                                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-business" role="tab" aria-controls="nav-profile" aria-selected="false">Business Account Resgistration </a>
+
+                                </div>
+                            </nav>*@
+                        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                            <!--tab content 1 start-->
+                            @*<div class="tab-pane fade show active" id="nav-home-two" role="tabpanel" aria-labelledby="nav-home-tab">*@
+                            <div style="background-color:#17a2b8;padding:10px; border-radius:5px;">
+                                <span style="color:white;"><strong style="font-size:18px;">Specify</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</span>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <a href="#" class="fs-title" data-toggle="popover" data-content="Some content" data-trigger="hover"><strong>Legal Info?</strong></a>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="float-right" style="color:red;">*Required</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col-md-12">
+                                            <span>Business Logo</span>
+                                            <input type="file" asp-for="tblLegalInfo.BusinessLogo" required="" class="form-control" />
+                                            <span asp-validation-for="tblLegalInfo.BusinessLogo" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-6">
+                                            <span>Legal Business Name</span>
+                                            <input type="text" asp-for="tblLegalInfo.LegalBusinessName" required="" class="form-control" placeholder="Lgeal Business Name" />
+                                            <span asp-validation-for="tblLegalInfo.LegalBusinessName" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span>Attache Compress File</span>
+                                            <input type="file" asp-for="tblLegalInfo.FilePath1" required="" class="form-control" />
+                                            <span asp-validation-for="tblLegalInfo.FilePath1" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-6">
+                                            <span>Legal Structure</span>
+                                            <input type="text" asp-for="tblLegalInfo.LegalStructure" required="" class="form-control" placeholder="Lgeal Structure" />
+                                            <span asp-validation-for="tblLegalInfo.LegalStructure" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span>Attache Compress File</span>
+                                            <input type="file" asp-for="tblLegalInfo.FilePath2" required="" class="form-control" />
+                                            <span asp-validation-for="tblLegalInfo.FilePath2" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-6">
+                                            <span>Tax Id or License Number</span>
+                                            <input type="text" class="form-control" required="" asp-for="tblLegalInfo.LicenseNumber" placeholder="Lgeal Structure" />
+                                            <span asp-validation-for="tblLegalInfo.LicenseNumber" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span>Attache Compress File</span>
+                                            <input type="file" asp-for="tblLegalInfo.FilePath3" required="" class="form-control" />
+                                            <span asp-validation-for="tblLegalInfo.FilePath3" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a href="#" class="fs-title" data-toggle="popover" data-content="Some content" data-trigger="hover"><strong>Legal Info?</strong></a>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-4">
+                                            <span>Ownership Type</span>
+                                            <select class="form-control" required="" asp-for="tblLegalInfo.OwnershipType">
+                                                <option>lorem ipsum</option>
+                                                <option>lorem ipsum</option>
+                                                <option>lorem ipsum</option>
+                                            </select>
+                                            <span asp-validation-for="tblLegalInfo.OwnershipType" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span>Industry</span>
+                                            <input type="text" required="" class="form-control" asp-for="tblLegalInfo.Industry" placeholder="Industry" />
+                                            <span asp-validation-for="tblLegalInfo.Industry" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span>Date Established</span>
+                                            <input type="datetime" required="" class="form-control" asp-for="tblLegalInfo.DateEstablished" placeholder="Industry" />
+                                            <span asp-validation-for="tblLegalInfo.DateEstablished" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-4">
+                                            <span>Annaul Rvenue</span>
+                                            <input type="text" required="" class="form-control" asp-for="tblLegalInfo.AnnaulRvenue" placeholder="Industry" />
+                                            <span asp-validation-for="tblLegalInfo.AnnaulRvenue" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span>Estimental Worth</span>
+                                            <input type="text" required="" class="form-control" asp-for="tblLegalInfo.EstimentalWorth" placeholder="Estimental Worth" />
+                                            <span asp-validation-for="tblLegalInfo.EstimentalWorth" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span>Business Spend Per Month</span>
+                                            <input type="text" required="" class="form-control" asp-for="tblLegalInfo.BusinessSpendPerMonth" placeholder="Business Spend" />
+                                            <span asp-validation-for="tblLegalInfo.BusinessSpendPerMonth" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-4">
+                                            <span>Largest Estiment Purchase</span>
+                                            <input type="text" required="" asp-for="tblLegalInfo.LargestEstimentPurchase" class="form-control" placeholder="Largest Estiment Purchase" />
+                                            <span asp-validation-for="tblLegalInfo.LargestEstimentPurchase" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span>Estiment Ecommerce Price</span>
+                                            <input type="text" required="" asp-for="tblLegalInfo.EstimentEcommercePrice" class="form-control" placeholder="Estiment Ecommerce Price" />
+                                            <span asp-validation-for="tblLegalInfo.EstimentEcommercePrice" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span>Largest Period Without Revenue</span>
+                                            <input type="datetime" required="" asp-for="tblLegalInfo.LargestPeriodWithoutRevenue" class="form-control" placeholder="Business Spend" />
+                                            <span asp-validation-for="tblLegalInfo.LargestPeriodWithoutRevenue" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a href="#" class="fs-title" data-toggle="popover" data-content="Some content" data-trigger="hover"><strong>Contact Info?</strong></a><br />
+                                            <input type="checkbox" asp-for="tblContactInfoBusiness.SaveASAccountDetails" />&nbsp; Save as account details?
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-6">
+                                            <span>Business Primary Email</span>
+                                            <input type="email" required="" asp-for="tblContactInfoBusiness.PrimaryEmail" class="form-control" placeholder="Business Primary Email" />
+                                            <span asp-validation-for="tblContactInfoBusiness.PrimaryEmail" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span>Business Secondary Email</span>
+                                            <input type="email" required="" class="form-control" asp-for="tblContactInfoBusiness.SecondaryEmail" placeholder="Business Secondary Email" />
+                                            <span asp-validation-for="tblContactInfoBusiness.SecondaryEmail" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-6">
+                                            <span>Business Primary Phone</span>
+                                            <input type="text" required="" class="form-control" asp-for="tblContactInfoBusiness.PrimaryPhone" placeholder="Business Primary Phone" />
+                                            <span asp-validation-for="tblContactInfoBusiness.PrimaryPhone" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span>Business Secondary Phone</span>
+                                            <input type="text" required="" class="form-control" asp-for="tblContactInfoBusiness.SecondaryPhone" placeholder="Business Secondary Phone" />
+                                            <span asp-validation-for="tblContactInfoBusiness.SecondaryPhone" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @*</div>*@
+                            <!--tab content 1 end-->
+                            <!--tab content 2 start-->
+                            @*<div class="tab-pane fade" id="nav-business" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                    <h1>Business Details Registration</h1>
+                                </div>*@
+                            <!--tab content 1 start-->
+                        </div>
+                        <!--tab End-->
+                    </div>
+
+                    <!--buttons-->
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                </fieldset>
+                <fieldset class="p-5">
+                    <div class="form-card">
+                        <div class="row">
+                            <div class="col-12">
+                                <h2 class="fs-title"><strong>Step 3</strong></h2>
+                            </div>
+                        </div>
+
+                        <!--tab begin-->
+                        @*<nav>
+                                <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#subscription" role="tab" aria-controls="nav-home" aria-selected="true">Subscription</a>
+                                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-business-three" role="tab" aria-controls="nav-profile" aria-selected="false">Business Account Resgistration </a>
+
+                                </div>
+                            </nav>*@
+                        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                            <!--tab content 1 start-->
+                            @*<div class="tab-pane fade show active" id="subscription" role="tabpanel" aria-labelledby="nav-home-tab">*@
+                            <div style="background-color:#17a2b8;padding:10px; border-radius:5px;">
+                                <span style="color:white;"><strong style="font-size:18px;">Select</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</span>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <a href="#" class="fs-title" data-toggle="popover" data-content="Some content" data-trigger="hover"><strong>Plans?</strong></a>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="float-right" style="color:red;">*Required</p>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <br />
+                                    <!--plans cards begin-->
+                                    <div class="container py-2">
+                                        <div class="row text-center align-items-end">
+                                            <!-- Pricing Table-->
+                                            <div class="col-md-4" data-aos="fade-left">
+                                                <div class="bg-white p-5 rounded-lg shadow">
+                                                    <h1 class="h6 text-uppercase font-weight-bold mb-4">Basic</h1>
+                                                    <h2 class="h1 font-weight-bold">$199<span class="text-small font-weight-normal ml-2">/ month</span></h2>
+
+                                                    <div class="custom-separator my-4 mx-auto bg-primary"></div>
+
+                                                    <ul class="list-unstyled my-5 text-small text-left">
+                                                        <li class="mb-3">
+                                                            <i class="fa fa-check mr-2 text-primary"></i> Lorem ipsum dolor sit amet
+                                                        </li>
+                                                        <li class="mb-3">
+                                                            <i class="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis
+                                                        </li>
+                                                        <li class="mb-3">
+                                                            <i class="fa fa-check mr-2 text-primary"></i> At vero eos et accusamus
+                                                        </li>
+                                                        <li class="mb-3 text-muted">
+                                                            <i class="fa fa-times mr-2"></i>
+                                                            <del>Nam libero tempore</del>
+                                                        </li>
+                                                        <li class="mb-3 text-muted">
+                                                            <i class="fa fa-times mr-2"></i>
+                                                            <del>Sed ut perspiciatis</del>
+                                                        </li>
+                                                        <li class="mb-3 text-muted">
+                                                            <i class="fa fa-times mr-2"></i>
+                                                            <del>Sed ut perspiciatis</del>
+                                                        </li>
+                                                    </ul>
+                                                    <a href="#" class="btn btn-info pl-4 pr-4 pt-1 pb-1">Subscribe</a>
+                                                </div>
+                                            </div>
+                                            <!-- END -->
+                                            <!-- Pricing Table-->
+                                            <div class="col-md-4 mt-3 mt-lg-0" data-aos="fade-up">
+                                                <div class="bg-white p-5 rounded-lg shadow">
+                                                    <h1 class="h6 text-uppercase font-weight-bold mb-4">Pro</h1>
+                                                    <h2 class="h1 font-weight-bold">$399<span class="text-small font-weight-normal ml-2">/ month</span></h2>
+
+                                                    <div class="custom-separator my-4 mx-auto bg-primary"></div>
+
+                                                    <ul class="list-unstyled my-5 text-small text-left font-weight-normal">
+                                                        <li class="mb-3">
+                                                            <i class="fa fa-check mr-2 text-primary"></i> Lorem ipsum dolor sit amet
+                                                        </li>
+                                                        <li class="mb-3">
+                                                            <i class="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis
+                                                        </li>
+                                                        <li class="mb-3">
+                                                            <i class="fa fa-check mr-2 text-primary"></i> At vero eos et accusamus
+                                                        </li>
+                                                        <li class="mb-3">
+                                                            <i class="fa fa-check mr-2 text-primary"></i> Nam libero tempore
+                                                        </li>
+                                                        <li class="mb-3">
+                                                            <i class="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis
+                                                        </li>
+                                                        <li class="mb-3 text-muted">
+                                                            <i class="fa fa-times mr-2"></i>
+                                                            <del>Sed ut perspiciatis</del>
+                                                        </li>
+                                                    </ul>
+                                                    <a href="#" class="btn btn-info pl-4 pr-4 pt-1 pb-1">Subscribe</a>
+                                                </div>
+                                            </div>
+                                            <!-- END -->
+                                            <!-- Pricing Table-->
+                                            <div class="col-md-4 mt-3 mt-lg-0">
+                                                <div class="bg-white p-5 rounded-lg shadow" data-aos="fade-right">
+                                                    <h1 class="h6 text-uppercase font-weight-bold mb-4">Enterprise</h1>
+                                                    <h2 class="h1 font-weight-bold">$899<span class="text-small font-weight-normal ml-2">/ month</span></h2>
+
+                                                    <div class="custom-separator my-4 mx-auto bg-primary"></div>
+
+                                                    <ul class="list-unstyled my-5 text-small text-left font-weight-normal">
+                                                        <li class="mb-3">
+                                                            <i class="fa fa-check mr-2 text-primary"></i> Lorem ipsum dolor sit amet
+                                                        </li>
+                                                        <li class="mb-3">
+                                                            <i class="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis
+                                                        </li>
+                                                        <li class="mb-3">
+                                                            <i class="fa fa-check mr-2 text-primary"></i> At vero eos et accusamus
+                                                        </li>
+                                                        <li class="mb-3">
+                                                            <i class="fa fa-check mr-2 text-primary"></i> Nam libero tempore
+                                                        </li>
+                                                        <li class="mb-3">
+                                                            <i class="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis
+                                                        </li>
+                                                        <li class="mb-3">
+                                                            <i class="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis
+                                                        </li>
+                                                    </ul>
+                                                    <a href="#" class="btn btn-info pl-4 pr-4 pt-1 pb-1">Subscribe</a>
+                                                </div>
+                                            </div>
+                                            <!-- END -->
+
+                                        </div>
+                                    </div>
+                                    <!--plans cards end-->
+                                </div>
+                            </div>
+                            @*</div>*@
+                            <!--tab content 1 end--> 
+                            <!--tab content 2 start-->
+                            @*<div class="tab-pane fade" id="nav-business-three" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                    <h1>Business Details Registration</h1>
+                                </div>*@
+                            <!--tab content 1 end-->
+                        </div>
+                        <!--tab end-->
+                    </div>
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                </fieldset>
+                <fieldset class="p-5">
+                    <div class="form-card">
+                        <div class="row">
+                            <div class="col-12">
+                                <h2 class="fs-title"><strong>Step 4</strong></h2>
+                            </div>
+                        </div>
+
+
+                        <!--tab begin-->
+                        @*<nav>
+                                <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#security" role="tab" aria-controls="nav-home" aria-selected="true">Security Setup</a>
+                                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-business-four" role="tab" aria-controls="nav-profile" aria-selected="false">Business Account Resgistration </a>
+
+                                </div>
+                            </nav>*@
+                        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                            <!--tab content 1 start-->
+                            @*<div class="tab-pane fade show active" id="security" role="tabpanel" aria-labelledby="nav-home-tab">*@
+                            <div style="background-color:#17a2b8;padding:10px; border-radius:5px;">
+                                <span style="color:white;"><strong style="font-size:18px;">Secure</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</span>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <a href="#" class="fs-title" data-toggle="popover" data-content="Some content" data-trigger="hover"><strong>Secure?</strong></a>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="float-right" style="color:red;">*Required</p>
+                                        </div>
+                                    </div>
+                                    <br />
+
+
+                                    <div class="row form-group">
+                                        <div class="col-md-12">
+                                            <span>Security Question 1</span>
+                                            <select class="form-control" required="" asp-for="tblSecure.SecurityQuestion1">
+                                                <option>lorem ipsum</option>
+                                                <option>lorem ipsum</option>
+                                                <option>lorem ipsum</option>
+                                            </select>
+                                            <span asp-validation-for="tblSecure.SecurityQuestion1" class="text-danger"></span>
+                                            <br />
+                                            <textarea placeholder="Answer" required="" asp-for="tblSecure.Answer1" class="form-control" rows="3"></textarea>
+                                            <span asp-validation-for="tblSecure.Answer1" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-12">
+                                            <span>Security Question 2</span>
+                                            <select class="form-control" required="" asp-for="tblSecure.SecurityQuestion2">
+                                                <option>lorem ipsum</option>
+                                                <option>lorem ipsum</option>
+                                                <option>lorem ipsum</option>
+                                            </select>
+                                            <span asp-validation-for="tblSecure.SecurityQuestion2" class="text-danger"></span>
+                                            <br />
+                                            <textarea placeholder="Answer" required="" asp-for="tblSecure.Answer2" class="form-control" rows="3"></textarea>
+                                            <span asp-validation-for="tblSecure.Answer2" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            @*</div>*@
+                            <!--tab content 1 end-->
+                            <!--tab content 2 start-->
+                            @*<div class="tab-pane fade" id="nav-business-four" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                    <h1>Business Details Registration</h1>
+                                </div>*@
+                            <!--tab content 1 end-->
+                        </div>
+                        <!--tab end-->
+
+                    </div>
+                    <input type="button" name="next" class="next action-button" value="Submit" />
+                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                </fieldset>
+                <fieldset class="p-5">
+                    <div class="form-card">
+                        <div class="row">
+                            <div class="col-12">
+                                <h2 class="fs-title"><strong>Step 5</strong></h2>
+                            </div>
+                        </div>
+
+                        <!--tab begin-->
+                        @*<nav>
+                                <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#terms" role="tab" aria-controls="nav-home" aria-selected="true">Terms Agrement</a>
+                                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-business-five" role="tab" aria-controls="nav-profile" aria-selected="false">Business Account Resgistration </a>
+
+                                </div>
+                            </nav>*@
+                        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                            <!--tab content 1 start-->
+                            @*<div class="tab-pane fade show active" id="terms" role="tabpanel" aria-labelledby="nav-home-tab">*@
+                            <div style="background-color:#17a2b8;padding:10px; border-radius:5px;">
+                                <span style="color:white;"><strong style="font-size:18px;">Complete</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</span>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <a href="#" class="fs-title" data-toggle="popover" data-content="Some content" data-trigger="hover"><strong>Fintech Corporate Agreement?</strong></a>
+
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="float-right" style="color:red;">*Required</p>
+                                        </div>
+                                    </div>
+                                    <div class="row p-4">
+                                        <div class="col-md-12 p-5">
+                                            <div style="border:2px solid lightgray; height:400px; overflow-y:scroll" class="p-3">
+                                                <span>
+                                                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                                                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                                                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                                                </span>
+                                            </div>
+                                            <br />
+                                            <input type="checkbox" />&nbsp; I have Read, understand and agree with fintech terms.
+                                            <br /><br /><br />
+                                            <center>
+                                                <button type="submit" class="btn btn-lg btn-info">REGISTER</button>
+                                            </center>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            @*</div>*@
+                            <!--tab content 1 end-->
+                            <!--tab content 2 start-->
+                            @*<div class="tab-pane fade" id="nav-business-five" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                    <h1>Business Details Registration</h1>
+                                </div>*@
+                            <!--tab content 1 end-->
+                        </div>
+                        <!--tab end-->
+
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+@*<div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-10 col-md-10 col-lg-12 col-xl-5 text-center p-0 mt-3 mb-2">
+                <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+
+
+                </div>
+            </div>
+        </div>
+    </div>*@
+@*<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>*@
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var current_fs, next_fs, previous_fs; //fieldsets
+        var opacity;
+        var current = 1;
+        var steps = $("fieldset").length;
+
+        setProgressBar(current);
+
+        $(".next").click(function (e) {
+            e.preventDefault();
+            debugger;
+            if ($("#msform").valid()) {
+
+            }
+            current_fs = $(this).parent();
+            next_fs = $(this).parent().next();
+
+            //Add Class Active
+            $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+            //show the next fieldset
+            next_fs.show();
+            //hide the current fieldset with style
+            current_fs.animate({ opacity: 0 }, {
+                step: function (now) {
+                    // for making fielset appear animation
+                    opacity = 1 - now;
+
+                    current_fs.css({
+                        'display': 'none',
+                        'position': 'relative'
+                    });
+                    next_fs.css({ 'opacity': opacity });
+                },
+                duration: 500
+            });
+            setProgressBar(++current);
+        });
+
+        $(".previous").click(function () {
+
+            current_fs = $(this).parent();
+            previous_fs = $(this).parent().prev();
+
+            //Remove class active
+            $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+            //show the previous fieldset
+            previous_fs.show();
+
+            //hide the current fieldset with style
+            current_fs.animate({ opacity: 0 }, {
+                step: function (now) {
+                    // for making fielset appear animation
+                    opacity = 1 - now;
+
+                    current_fs.css({
+                        'display': 'none',
+                        'position': 'relative'
+                    });
+                    previous_fs.css({ 'opacity': opacity });
+                },
+                duration: 500
+            });
+            setProgressBar(--current);
+        });
+
+        function setProgressBar(curStep) {
+            var percent = parseFloat(100 / steps) * curStep;
+            percent = percent.toFixed();
+            $(".progress-bar")
+                .css("width", percent + "%")
+        }
+
+        $(".submit").click(function () {
+            return false;
+        })
+
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover();
+    });
+</script>

@@ -1,0 +1,634 @@
+﻿@model Entities.tblUser
+@{
+    ViewData["Title"] = "Registration";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+<style>
+    .form-control:focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 0rem rgba(0, 123, 255, .25)
+    }
+
+    .btn-secondary:focus {
+        box-shadow: 0 0 0 0rem rgba(108, 117, 125, .5)
+    }
+
+    .close:focus {
+        box-shadow: 0 0 0 0rem rgba(108, 117, 125, .5)
+    }
+
+    .mt-200 {
+        margin-top: 200px
+    }
+
+    .sw-theme-arrows > ul.step-anchor > li.active > a {
+        border-color: #17a2b8 !important;
+        background: #17a2b8 !important;
+    }
+
+    .btn-group > .btn-group:not(:first-child) > .btn, .btn-group > .btn:not(:first-child) {
+        background-color: #17a2b8 !important;
+        border-color: #17a2b8 !important;
+    }
+
+    #smartwizard {
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+    }
+
+    .sw-theme-arrows > ul.step-anchor > li.active > a:after {
+        border-left: 30px solid #17a2b8 !important;
+    }
+
+    .sw-theme-arrows > ul.step-anchor > li.done > a {
+        background-color: #85C1E9 !important;
+        border-color: #85C1E9 !important;
+    }
+
+        .sw-theme-arrows > ul.step-anchor > li.done > a:after {
+            border-left: 30px solid #85C1E9 !important;
+        }
+</style>
+
+<div class="container-fluid">
+    <div id="smartwizard" style="background-color: white;">
+        <ul>
+            <li><a href="#step-1">Step 1<br /><small>Account Details</small></a></li>
+            <li><a href="#step-2">Step 2<br /><small>Business Details</small></a></li>
+            <li><a href="#step-3">Step 3<br /><small>Subscriptions</small></a></li>
+            <li><a href="#step-4">Step 4<br /><small>Security Setup</small></a></li>
+            <li><a href="#step-5">Step 5<br /><small>Terms-Agreement</small></a></li>
+        </ul>
+        <div class="mt-1 p-lg-5">
+            <div id="step-1">
+                <div style="background-color:#17a2b8;padding:10px; border-radius:5px;">
+                    <span style="color:white;"><strong style="font-size:18px;">Wellcome</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</span>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-8">
+                        <h3>
+                            <a href="#" class="fs-title" data-toggle="popover" data-content="Some content" data-trigger="hover"><strong>Identifiaction?</strong></a>
+                        </h3>
+                    </div>
+                    <div class="col-4">
+                        <p class="float-right" style="color:red !important;">*Required</p>
+                    </div>
+                </div>
+                <br />
+                <div class="row clearfix form-group">
+                    <div class="col-md-4">
+                        <span>Name</span>
+                        <input type="text" asp-for="tblIdentifiaction.Name" class="form-control" placeholder="Name" />
+                    </div>
+                    <div class="col-md-4">
+                        <span>Middle Name</span>
+                        <input type="text" asp-for="tblIdentifiaction.MiddleName" class="form-control" placeholder="Name" />
+                    </div>
+                    <div class="col-md-4">
+                        <span>Last Name</span>
+                        <input type="text" asp-for="tblIdentifiaction.LastName" class="form-control" placeholder="Name" />
+                    </div>
+                </div>
+                <div class="row clearfix form-group">
+                    <div class="col-md-4">
+                        <span>Select Suffix</span>
+                        <select class="form-control">
+                            <option>lorem ipsum</option>
+                            <option>lorem ipsum</option>
+                            <option>lorem ipsum</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <span>DOB</span>
+                        <input type="datetime-local" asp-for="tblIdentifiaction.DOB" class="form-control" placeholder="Name" />
+
+                    </div>
+                    <div class="col-md-4">
+                        <span>Gender</span>
+                        <select class="form-control" asp-for="tblIdentifiaction.Gender">
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row form-group clearfix">
+                    <div class="col-md-4">
+                        <span>Ethencity</span>
+                        <input type="text" asp-for="tblIdentifiaction.Ethencity" class="form-control" placeholder="Name" />
+                    </div>
+                    <div class="col-md-4">
+                        <span>Government ID Name</span>
+                        <input type="text" asp-for="tblIdentifiaction.GovernmentName" class="form-control" placeholder="Name" />
+                    </div>
+                    <div class="col-md-4">
+                        <span>Attache the government Issued ID that reflects required* identification info.</span>
+                        <input type="file" asp-for="tblIdentifiaction.FilePath" class="form-control" />
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>
+                            <a href="#" class="fs-title" data-toggle="popover" data-content="Some content" data-trigger="hover"><strong>Residence?</strong></a>
+                        </h3>
+                    </div>
+                </div>
+                <br />
+                <div class="row form-group clearfix">
+                    <div class="col-md-4">
+                        <span>Country Of Citzenship</span>
+                        <input type="text" asp-for="tblResidence.CitzenshipCountry" class="form-control" placeholder="Name" />
+                    </div>
+                    <div class="col-md-4">
+                        <span>Residing Country</span>
+                        <select class="form-control" asp-for="tblResidence.ResidingCountry">
+                            <option>lorem ipsum</option>
+                            <option>lorem ipsum</option>
+                            <option>lorem ipsum</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <span>Street Address</span>
+                        <input type="text" class="form-control" asp-for="tblResidence.StreetAddress" placeholder="Name" />
+                    </div>
+                </div>
+                <div class="row form-group clearfix">
+                    <div class="col-md-4">
+                        <span>Suit/apt</span>
+                        <input type="text" class="form-control" asp-for="tblResidence.SuitApt" placeholder="Name" />
+                    </div>
+                    <div class="col-md-4">
+                        <span>State/Province</span>
+                        <select class="form-control" asp-for="tblResidence.StateProvince">
+                            <option>lorem ipsum</option>
+                            <option>lorem ipsum</option>
+                            <option>lorem ipsum</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <span>City</span>
+                        <select class="form-control" asp-for="tblResidence.City">
+                            <option>lorem ipsum</option>
+                            <option>lorem ipsum</option>
+                            <option>lorem ipsum</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row form-group clearfix">
+                    <div class="col-md-4">
+                        <span>Country</span>
+                        <select class="form-control" asp-for="tblResidence.ResidingCountry">
+                            <option>lorem ipsum</option>
+                            <option>lorem ipsum</option>
+                            <option>lorem ipsum</option>
+                        </select>
+
+
+                    </div>
+                    <div class="col-md-4">
+                        <span>Street Address</span>
+                        <input type="text" class="form-control" asp-for="tblResidence.StreetAddress" placeholder="Name" />
+
+                    </div>
+                    <div class="col-md-4">
+                        <span>Suit/apt</span>
+                        <input type="text" class="form-control" asp-for="tblResidence.SuitApt" placeholder="Name" />
+
+                    </div>
+                </div>
+                <div class="row clearfix form-group">
+                    <div class="col-md-4">
+                        <span>State/Province</span>
+                        <select class="form-control" asp-for="tblResidence.StateProvince">
+                            <option>lorem ipsum</option>
+                            <option>lorem ipsum</option>
+                            <option>lorem ipsum</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <span>City</span>
+                        <select class="form-control" asp-for="tblResidence.City">
+                            <option>lorem ipsum</option>
+                            <option>lorem ipsum</option>
+                            <option>lorem ipsum</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <span>Postal/Zip code</span>
+                        <input type="text" class="form-control" placeholder="Name" />
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>
+                            <a href="#" class="fs-title"  data-toggle="popover" data-content="Some content" data-trigger="hover"><strong>Contact Info?</strong></a>
+                        </h3>
+                    </div>
+                </div>
+                <br />
+                <div class="row form-group clearfix">
+                    <div class="col-md-6">
+                        <span>Primary Email</span>
+                        <input type="email" class="form-control" placeholder="Name" />
+
+                    </div>
+                    <div class="col-md-6">
+                        <span>Secondary Email</span>
+                        <input type="text" class="form-control" placeholder="Name" />
+
+                    </div>
+                </div>
+
+                <div class="row form-group clearfix">
+                    <div class="col-md-6">
+                        <span>Primary Phone</span>
+                        <input type="text" class="form-control" placeholder="Name" />
+                    </div>
+                    <div class="col-md-6">
+                        <span>Secondary Phone</span>
+                        <input type="text" class="form-control" placeholder="Name" />
+                    </div>
+                </div>
+
+                <div class="row form-group clearfix">
+                    <div class="col-md-6">
+                        <span>Postal/Zip Code</span>
+                        <input type="text" class="form-control" placeholder="Postal/Zip Code" />
+
+                    </div>
+                    <div class="col-md-6">
+                        <small>Attache the government Issued ID that reflects required* Residental info.</small>
+                        <input type="file" class="form-control" />
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div id="step-2">
+                <div style="background-color:#17a2b8;padding:10px; border-radius:5px;">
+                    <span style="color:white;"><strong style="font-size:18px;">Specify</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</span>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-6">
+                        <h3>
+                            <a href="#" class="fs-title" data-toggle="popover" data-content="Some content" data-trigger="hover"><strong>Legal Info?</strong></a>
+                        </h3>
+                    </div>
+                    <div class="col-6">
+                        <p class="float-right" style="color:red;">*Required</p>
+                    </div>
+                </div>
+                <br />
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <span>Business Logo</span>
+                        <input type="file" class="form-control" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <span>Legal Business Name</span>
+                        <input type="text" class="form-control" placeholder="Lgeal Business Name" />
+                    </div>
+                    <div class="col-md-6">
+                        <span>Attache Compress File</span>
+                        <input type="file" class="form-control" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <span>Legal Structure</span>
+                        <input type="text" class="form-control" placeholder="Lgeal Structure" />
+                    </div>
+                    <div class="col-md-6">
+                        <span>Attache Compress File</span>
+                        <input type="file" class="form-control" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <span>Tax Id or License Number</span>
+                        <input type="text" class="form-control" placeholder="Lgeal Structure" />
+                    </div>
+                    <div class="col-md-6">
+                        <span>Attache Compress File</span>
+                        <input type="file" class="form-control" />
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>
+                            <a href="#" class="fs-title" data-toggle="popover" data-content="Some content" data-trigger="hover"><strong>Legal Info?</strong></a>
+                        </h3>
+                    </div>
+                </div>
+                <br />
+                <div class="row form-group">
+                    <div class="col-md-4">
+                        <span>Ownership Type</span>
+                        <select class="form-control">
+                            <option>lorem ipsum</option>
+                            <option>lorem ipsum</option>
+                            <option>lorem ipsum</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <span>Industry</span>
+                        <input type="text" class="form-control" placeholder="Industry" />
+                    </div>
+                    <div class="col-md-4">
+                        <span>Date Established</span>
+                        <input type="datetime" class="form-control" placeholder="Industry" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-4">
+                        <span>Annaul Rvenue</span>
+                        <input type="text" class="form-control" placeholder="Industry" />
+                    </div>
+                    <div class="col-md-4">
+                        <span>Estimental Worth</span>
+                        <input type="text" class="form-control" placeholder="Estimental Worth" />
+                    </div>
+                    <div class="col-md-4">
+                        <span>Business Spend Per Month</span>
+                        <input type="datetime" class="form-control" placeholder="Business Spend" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-4">
+                        <span>Largest Estiment Purchase</span>
+                        <input type="text" class="form-control" placeholder="Largest Estiment Purchase" />
+                    </div>
+                    <div class="col-md-4">
+                        <span>Estiment Ecommerce Price</span>
+                        <input type="text" class="form-control" placeholder="Estiment Ecommerce Price" />
+                    </div>
+                    <div class="col-md-4">
+                        <span>Largest Period Without Revenue</span>
+                        <input type="datetime" class="form-control" placeholder="Business Spend" />
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>
+                            <a href="#" class="fs-title" data-toggle="popover" data-content="Some content" data-trigger="hover"><strong>Contact Info?</strong></a><br />
+                        </h3>
+                        <input type="checkbox" />&nbsp; Save as account details?
+                    </div>
+                </div>
+                <br />
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <span>Business Primary Email</span>
+                        <input type="datetime" class="form-control" placeholder="Business Primary Email" />
+                    </div>
+                    <div class="col-md-6">
+                        <span>Business Secondary Email</span>
+                        <input type="datetime" class="form-control" placeholder="Business Secondary Email" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <span>Business Primary Phone</span>
+                        <input type="datetime" class="form-control" placeholder="Business Primary Phone" />
+                    </div>
+                    <div class="col-md-6">
+                        <span>Business Secondary Phone</span>
+                        <input type="datetime" class="form-control" placeholder="Business Secondary Phone" />
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div id="step-3" class="">
+                <div style="background-color:#17a2b8;padding:10px; border-radius:5px;">
+                    <span style="color:white;"><strong style="font-size:18px;">Select</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</span>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-6">
+                        <h3>
+                            <a href="#" class="fs-title" data-toggle="popover" data-content="Some content" data-trigger="hover"><strong>Plans?</strong></a>
+                        </h3>
+                    </div>
+                    <div class="col-6">
+                        <p class="float-right" style="color:red;">*Required</p>
+                    </div>
+                </div>
+                <br />
+                @*<div class="container py-2">
+                        <div class="row text-center align-items-end">
+
+                            <div class="col-md-4" data-aos="fade-left">
+                                <div class="bg-white p-5 rounded-lg shadow">
+                                    <h1 class="h6 text-uppercase font-weight-bold mb-4">Basic</h1>
+                                    <h2 class="h1 font-weight-bold">$199<span class="text-small font-weight-normal ml-2">/ month</span></h2>
+
+                                    <div class="custom-separator my-4 mx-auto bg-primary"></div>
+
+                                    <ul class="list-unstyled my-5 text-small text-left">
+                                        <li class="mb-3">
+                                            <i class="fa fa-check mr-2 text-primary"></i> Lorem ipsum dolor sit amet
+                                        </li>
+                                        <li class="mb-3">
+                                            <i class="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis
+                                        </li>
+                                        <li class="mb-3">
+                                            <i class="fa fa-check mr-2 text-primary"></i> At vero eos et accusamus
+                                        </li>
+                                        <li class="mb-3 text-muted">
+                                            <i class="fa fa-times mr-2"></i>
+                                            <del>Nam libero tempore</del>
+                                        </li>
+                                        <li class="mb-3 text-muted">
+                                            <i class="fa fa-times mr-2"></i>
+                                            <del>Sed ut perspiciatis</del>
+                                        </li>
+                                        <li class="mb-3 text-muted">
+                                            <i class="fa fa-times mr-2"></i>
+                                            <del>Sed ut perspiciatis</del>
+                                        </li>
+                                    </ul>
+                                    <a href="#" class="btn btn-info pl-4 pr-4 pt-1 pb-1">Subscribe</a>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 mt-3 mt-lg-0" data-aos="fade-up">
+                                <div class="bg-white p-5 rounded-lg shadow">
+                                    <h1 class="h6 text-uppercase font-weight-bold mb-4">Pro</h1>
+                                    <h2 class="h1 font-weight-bold">$399<span class="text-small font-weight-normal ml-2">/ month</span></h2>
+
+                                    <div class="custom-separator my-4 mx-auto bg-primary"></div>
+
+                                    <ul class="list-unstyled my-5 text-small text-left font-weight-normal">
+                                        <li class="mb-3">
+                                            <i class="fa fa-check mr-2 text-primary"></i> Lorem ipsum dolor sit amet
+                                        </li>
+                                        <li class="mb-3">
+                                            <i class="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis
+                                        </li>
+                                        <li class="mb-3">
+                                            <i class="fa fa-check mr-2 text-primary"></i> At vero eos et accusamus
+                                        </li>
+                                        <li class="mb-3">
+                                            <i class="fa fa-check mr-2 text-primary"></i> Nam libero tempore
+                                        </li>
+                                        <li class="mb-3">
+                                            <i class="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis
+                                        </li>
+                                        <li class="mb-3 text-muted">
+                                            <i class="fa fa-times mr-2"></i>
+                                            <del>Sed ut perspiciatis</del>
+                                        </li>
+                                    </ul>
+                                    <a href="#" class="btn btn-info pl-4 pr-4 pt-1 pb-1">Subscribe</a>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 mt-3 mt-lg-0">
+                                <div class="bg-white p-5 rounded-lg shadow" data-aos="fade-right">
+                                    <h1 class="h6 text-uppercase font-weight-bold mb-4">Enterprise</h1>
+                                    <h2 class="h1 font-weight-bold">$899<span class="text-small font-weight-normal ml-2">/ month</span></h2>
+
+                                    <div class="custom-separator my-4 mx-auto bg-primary"></div>
+
+                                    <ul class="list-unstyled my-5 text-small text-left font-weight-normal">
+                                        <li class="mb-3">
+                                            <i class="fa fa-check mr-2 text-primary"></i> Lorem ipsum dolor sit amet
+                                        </li>
+                                        <li class="mb-3">
+                                            <i class="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis
+                                        </li>
+                                        <li class="mb-3">
+                                            <i class="fa fa-check mr-2 text-primary"></i> At vero eos et accusamus
+                                        </li>
+                                        <li class="mb-3">
+                                            <i class="fa fa-check mr-2 text-primary"></i> Nam libero tempore
+                                        </li>
+                                        <li class="mb-3">
+                                            <i class="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis
+                                        </li>
+                                        <li class="mb-3">
+                                            <i class="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis
+                                        </li>
+                                    </ul>
+                                    <a href="#" class="btn btn-info pl-4 pr-4 pt-1 pb-1">Subscribe</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>*@
+            </div>
+
+
+            <div id="step-4" class="">
+                <div style="background-color:#17a2b8;padding:10px; border-radius:5px;">
+                    <span style="color:white;"><strong style="font-size:18px;">Secure</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</span>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-6">
+                        <h3>
+                            <a href="#" class="fs-title" data-toggle="popover" data-content="Some content" data-trigger="hover"><strong>Secure?</strong></a>
+                        </h3>
+                    </div>
+                    <div class="col-6">
+                        <p class="float-right" style="color:red;">*Required</p>
+                    </div>
+                </div>
+                <br />
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <span>Passcode</span>
+                        <input type="password" class="form-control" placeholder="Passcode" />
+                    </div>
+                    <div class="col-md-6">
+                        <span>Confrim Passcode</span>
+                        <input type="password" class="form-control" placeholder="Confirm Passcode" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <span>Security Question 1</span>
+                        <select class="form-control">
+                            <option>lorem ipsum</option>
+                            <option>lorem ipsum</option>
+                            <option>lorem ipsum</option>
+                        </select>
+                        <br />
+                        <textarea placeholder="Answer" class="form-control" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <span>Security Question 2</span>
+                        <select class="form-control">
+                            <option>lorem ipsum</option>
+                            <option>lorem ipsum</option>
+                            <option>lorem ipsum</option>
+                        </select>
+                        <br />
+                        <textarea placeholder="Answer" class="form-control" rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div id="step-5" class="">
+                <div style="background-color:#17a2b8;padding:10px; border-radius:5px;">
+                    <span style="color:white;"><strong style="font-size:18px;">Complete</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</span>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-6">
+                        <h3>
+                            <a href="#" class="fs-title" data-toggle="popover" data-content="Some content" data-trigger="hover"><strong>Fintech Corporate Agreement?</strong></a>
+                        </h3>
+                    </div>
+                    <div class="col-6">
+                        <p class="float-right" style="color:red;">*Required</p>
+                    </div>
+                </div>
+                <div class="row p-4">
+                    <div class="col-md-12 p-5">
+                        <div style="border:2px solid lightgray; height:400px; overflow-y:scroll" class="p-3">
+                            <span>
+                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                            </span>
+                        </div>
+                        <br />
+                        <input type="checkbox" />&nbsp; I have Read, understand and agree with fintech terms.
+                        <br /><br /><br />
+                        <center>
+                            <button type="submit" class="btn btn-lg btn-info">REGISTER</button>
+                        </center>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover();
+    });
+</script>

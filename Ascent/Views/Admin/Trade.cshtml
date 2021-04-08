@@ -1,0 +1,213 @@
+﻿
+@{
+    ViewData["Title"] = "Trade";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+@*<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">*@
+
+@*<link href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/fixedheader/3.1.7/css/fixedHeader.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.bootstrap.min.css" rel="stylesheet" />*@
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+
+<style>
+    .toggle.ios, .toggle-on.ios, .toggle-off.ios {
+        border-radius: 20px;
+        text-align: center;
+    }
+
+        .toggle.ios .toggle-handle {
+            border-radius: 20px;
+            background-color: aliceblue;
+        }
+
+    .btn-primary {
+        background-color: #283041;
+        border-color: white !important;
+    }
+
+        .btn-primary:hover {
+            background-color: #283041;
+            border-color: white !important;
+        }
+
+        .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+            background-color: #283041;
+            border-color: #283041;
+        }
+
+    .btn-info {
+        background-color: #283041;
+        border-color: white;
+    }
+
+    /*Overview css*/
+    .card-counter {
+        box-shadow: 2px 2px 10px #DADADA;
+        margin: 5px;
+        padding: 20px 10px;
+        background-color: #fff;
+        height: 100px;
+        border-radius: 5px;
+        transition: .3s linear all;
+    }
+
+        .card-counter:hover {
+            box-shadow: 4px 4px 20px #DADADA;
+            transition: .3s linear all;
+        }
+
+        .card-counter.primary {
+            background-color: #007bff;
+            color: #FFF;
+        }
+
+        .card-counter.danger {
+            background-color: #ef5350;
+            color: #FFF;
+        }
+
+        .card-counter.success {
+            background-color: #66bb6a;
+            color: #FFF;
+        }
+
+        .card-counter.info {
+            background-color: #26c6da;
+            color: #FFF;
+        }
+
+        .card-counter i {
+            font-size: 5em;
+            opacity: 0.2;
+        }
+
+        .card-counter .count-numbers {
+            position: absolute;
+            right: 35px;
+            top: 45px;
+            font-size: 32px;
+            display: block;
+        }
+
+        .card-counter .count-name {
+            position: absolute;
+            right: 35px;
+            top: 86px;
+            font-style: italic;
+            text-transform: capitalize;
+            opacity: 0.5;
+            display: block;
+            font-size: 18px;
+        }
+
+    /*table pagination*/
+    .page-item.active .page-link {
+        background-color: #283041;
+        border-color: #283041;
+    }
+</style>
+
+
+<div id="trade" >
+    <div class="row">
+        <div class="col-md-3 order-md-1 order-sm-1">
+            <select class="form-control" style="border-left:none; border-right:none; border-top:none; border-color:#283041; border-radius:0px;">
+                <option></option>
+                <option>Loremipsum</option>
+                <option>Loremipsum</option>
+                <option>Loremipsum</option>
+                <option>Loremipsum</option>
+                <option>Loremipsum</option>
+                <option>Loremipsum</option>
+            </select>
+        </div>
+        <div class="col-md-6 order-md-2 order-sm-3">
+            <center>
+                <h4>Action</h4>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-info">Buy</button>
+                    <button type="button" class="btn btn-info">Sell</button>
+                    <button type="button" class="btn btn-info">Sell All</button>
+                    <button type="button" class="btn btn-info">Exchange</button>
+                </div>
+            </center>
+            <br /><br /><br />
+            <center>
+                <h4>Order Type</h4>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-info">Market</button>
+                    <button type="button" class="btn btn-info">Ask</button>
+                    <button type="button" class="btn btn-info">Limit</button>
+                    <button type="button" class="btn btn-info">Stop</button>
+                    <button type="button" class="btn btn-info">Stop Limit</button>
+                </div>
+            </center>
+            <br /><br /><br />
+            <center>
+                <h4>Transaction Time Frame</h4>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-info">Day</button>
+                    <button type="button" class="btn btn-info">On Close</button>
+                    <button type="button" class="btn btn-info">Custom</button>
+
+                </div>
+            </center>
+        </div>
+        <div class="col-md-3 order-md-3 order-sm-2">
+            <select class="form-control" style="border-left:none; border-right:none; border-top:none; border-color:#283041; border-radius:0px;">
+                <option></option>
+                <option>Loremipsum</option>
+                <option>Loremipsum</option>
+                <option>Loremipsum</option>
+                <option>Loremipsum</option>
+                <option>Loremipsum</option>
+                <option>Loremipsum</option>
+            </select>
+        </div>
+
+
+    </div>
+
+    <br />
+    <br />
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Payment Method</h4>
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Estimated Order Value</h4>
+        </div>
+        <div class="col-md-6">
+            <h4 class=text-right>$0.00</h4>
+            <div class="d-flex float-right">
+                <button type="button" class="btn btn-info">Clear</button>
+                <button type="button" class="btn btn-info">Complete</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--Trade Section End-->
+
+
+
+<script>
+    AOS.init();
+</script>
+

@@ -1,0 +1,16 @@
+C:\Users\Muhammad Azam\source\repos\New folder\NewRepo\Entities\bin\Debug\netcoreapp3.1\Entities.deps.json
+C:\Users\Muhammad Azam\source\repos\New folder\NewRepo\Entities\bin\Debug\netcoreapp3.1\Entities.dll
+C:\Users\Muhammad Azam\source\repos\New folder\NewRepo\Entities\bin\Debug\netcoreapp3.1\Entities.pdb
+C:\Users\Muhammad Azam\source\repos\New folder\NewRepo\Entities\obj\Debug\netcoreapp3.1\Entities.csprojAssemblyReference.cache
+C:\Users\Muhammad Azam\source\repos\New folder\NewRepo\Entities\obj\Debug\netcoreapp3.1\Entities.AssemblyInfoInputs.cache
+C:\Users\Muhammad Azam\source\repos\New folder\NewRepo\Entities\obj\Debug\netcoreapp3.1\Entities.AssemblyInfo.cs
+C:\Users\Muhammad Azam\source\repos\New folder\NewRepo\Entities\obj\Debug\netcoreapp3.1\Entities.dll
+C:\Users\Muhammad Azam\source\repos\New folder\NewRepo\Entities\obj\Debug\netcoreapp3.1\Entities.pdb
+E:\2021\Pakistan\Azad\Ascent\Entities\bin\Debug\netcoreapp3.1\Entities.deps.json
+E:\2021\Pakistan\Azad\Ascent\Entities\bin\Debug\netcoreapp3.1\Entities.dll
+E:\2021\Pakistan\Azad\Ascent\Entities\bin\Debug\netcoreapp3.1\Entities.pdb
+E:\2021\Pakistan\Azad\Ascent\Entities\obj\Debug\netcoreapp3.1\Entities.csprojAssemblyReference.cache
+E:\2021\Pakistan\Azad\Ascent\Entities\obj\Debug\netcoreapp3.1\Entities.AssemblyInfoInputs.cache
+E:\2021\Pakistan\Azad\Ascent\Entities\obj\Debug\netcoreapp3.1\Entities.AssemblyInfo.cs
+E:\2021\Pakistan\Azad\Ascent\Entities\obj\Debug\netcoreapp3.1\Entities.dll
+E:\2021\Pakistan\Azad\Ascent\Entities\obj\Debug\netcoreapp3.1\Entities.pdb

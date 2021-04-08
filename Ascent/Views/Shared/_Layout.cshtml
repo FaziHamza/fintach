@@ -1,0 +1,565 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Fintech</title>
+    <!-- Favicons -->
+    <link type="image/x-icon" href="~/assets/img/favicon.png" rel="icon">
+
+    <!-- Bootstrap CSS -->
+    @*<link rel="stylesheet" href="~/assets/css/bootstrap.min.css">*@
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!-- Fontawesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/assets/plugins/fontawesome/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/assets/plugins/fontawesome/css/all.min.css" rel="stylesheet" />
+
+    <!-- Main CSS -->
+    <link href="~/assets/css/style.css" rel="stylesheet" />
+    <link href="~/assets/css/custom.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+     @*main style css link*@ 
+    <link rel="stylesheet" href="~/NewFolder/assets/css/style.css">
+     @*responsive css link*@ 
+    <link rel="stylesheet" href="~/NewFolder/assets/css/responsive.css">
+
+
+    <style>
+        .form-control {
+            height:auto;
+        }
+        /*nav*/
+        .nav-item {
+            position: relative;
+        }
+
+        .navbar-collapse ul li a.nav-link:before {
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: transparent;
+            content: '';
+            opacity: 0;
+            -ms-transition: opacity 0.3s, -webkit-transform 0.3s;
+            -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+            transition: opacity 0.3s, transform 0.3s;
+            -ms-transform: translateY(10px);
+            -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+        }
+
+        .navbar-collapse ul li:hover a.nav-link:before {
+            opacity: 1;
+            -ms-transform: translateY(0px);
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+            bottom: 0px;
+            background: #009efb;
+        }
+
+        .dropdown-item:hover, .dropdown-item:focus {
+            color: #ffffff;
+            text-decoration: none;
+            background-color: #009efb;
+        }
+
+        .dropdown-menu {
+            border: 0px;
+        }
+
+
+        /*wizard*/
+        /*wizard*/
+        #heading {
+            text-transform: uppercase;
+            color: #673AB7;
+            font-weight: normal
+        }
+
+        #msform {
+            text-align: center;
+            position: relative;
+            margin-top: 20px
+        }
+
+            #msform fieldset {
+                background: white;
+                border: 0 none;
+                border-radius: 0.5rem;
+                box-sizing: border-box;
+                width: 100%;
+                margin: 0;
+                padding-bottom: 20px;
+                position: relative
+            }
+
+        .form-card {
+            text-align: left
+        }
+
+        #msform fieldset:not(:first-of-type) {
+            display: none
+        }
+
+        #msform input,
+        #msform textarea {
+           
+            border: 1px solid #ccc !important;
+            border-radius: 0px !important;
+            margin-bottom: 25px !important;
+            margin-top: 2px !important;
+            
+            box-sizing: border-box !important;
+            font-family: montserrat !important;
+            color: #fff !important;
+            /* background-color: #ECEFF1;*/
+            font-size: 16px !important;
+            letter-spacing: 1px !important;
+        }
+
+            #msform input:focus,
+            #msform textarea:focus {
+                -moz-box-shadow: none !important;
+                -webkit-box-shadow: none !important;
+                box-shadow: none !important;
+                border: 2px solid #009efb !important;
+                outline-width: 0 !important;
+            }
+
+        #msform .action-button {
+            width: 100px;
+            background: #009efb;
+            font-weight: bold;
+            color: white;
+            border: 0 none;
+            border-radius: 0px;
+            cursor: pointer;
+            padding: 10px 5px;
+            margin: 10px 0px 10px 5px;
+            float: right
+        }
+
+            #msform .action-button:hover,
+            #msform .action-button:focus {
+                background-color: #009efb;
+            }
+
+        #msform .action-button-previous {
+            width: 100px;
+            background: #616161;
+            font-weight: bold;
+            color: white;
+            border: 0 none;
+            border-radius: 0px;
+            cursor: pointer;
+            padding: 10px 5px;
+            margin: 10px 5px 10px 0px;
+            float: right
+        }
+
+            #msform .action-button-previous:hover,
+            #msform .action-button-previous:focus {
+                background-color: #000000
+            }
+
+        .card {
+            z-index: 0;
+            border: none;
+            position: relative
+        }
+
+        .fs-title {
+            font-size: 25px;
+            color: #009efb;
+            margin-bottom: 15px;
+            font-weight: normal;
+            text-align: left
+        }
+
+        .purple-text {
+            color: #673AB7;
+            font-weight: normal
+        }
+
+        .steps {
+            font-size: 25px;
+            color: gray;
+            margin-bottom: 10px;
+            font-weight: normal;
+            text-align: right
+        }
+
+        .fieldlabels {
+            color: black;
+            text-align: left
+        }
+
+        #progressbar {
+            margin-right: 36px !important;
+            overflow: hidden;
+            color: grey;
+        }
+
+            #progressbar .active {
+                color: #009efb;
+            }
+
+            #progressbar li {
+                list-style-type: none;
+                font-size: 15px;
+                width: 20%;
+                float: left;
+                position: relative;
+                font-weight: 400
+            }
+
+            #progressbar #account:before {
+                font-family: FontAwesome;
+                content: "\f13e";
+            }
+
+            #progressbar #personal:before {
+                font-family: FontAwesome;
+                content: "\f007"
+            }
+
+            #progressbar #payment:before {
+                font-family: FontAwesome;
+                content: "\f030"
+            }
+
+            #progressbar #confirm:before {
+                font-family: FontAwesome;
+                content: "\f00c"
+            }
+
+            #progressbar li:before {
+                width: 50px;
+                height: 50px;
+                line-height: 45px;
+                display: block;
+                font-size: 20px;
+                color: #ffffff;
+                background: lightgray;
+                border-radius: 50%;
+                margin: 0 auto 10px auto;
+                padding: 2px
+            }
+
+            #progressbar li:after {
+                content: '';
+                width: 100%;
+                height: 2px;
+                background: lightgray;
+                position: absolute;
+                left: 0;
+                top: 25px;
+                z-index: -1
+            }
+
+            #progressbar li.active:before,
+            #progressbar li.active:after {
+                background: #009efb;
+            }
+
+        .progress {
+            height: 20px
+        }
+
+        .progress-bar {
+            background-color: #673AB7
+        }
+
+        .fit-image {
+            width: 100%;
+            object-fit: cover
+        }
+        p, span, li {
+            color:black !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    
+    <!-- Main Wrapper -->
+    <header class="header">
+        @if (true)
+        {
+            <div class="header-bottom" style="background:white;">
+                <div class="container">
+                    <div class="row align-items-center justify-content-between">
+                        <a class="site-logo site-title" href="index.html"><img src="~/assets/img/Ascent Financial crest thicker letters-01.jpg" alt="site-logo" width="70"></a>
+                        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <nav class="navbar navbar-expand-lg p-0">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav main-menu ml-auto">
+                                    <li><a href="#">About</a></li>
+                                    <li class="menu_has_children">
+                                        <a href="#0">Services<i class="fas fa-caret-down"></i></a>
+                                        <ul class="sub-menu">
+                                            <li><a href="/admin/index">Dashboard</a></li>
+                                            <li><a href="traffic-control.html">Appoitment</a></li>
+                                            <li><a href="Private-pilot.html">Timing</a></li>
+                                            <li><a href="atp-training.html">Lists</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Subscription</a></li>
+                                    <li><a href="#">Community</a></li>
+                                    <li><a href="contact.html">Support</a></li>
+                                </ul>
+                                <div class="header-action d-flex flex-wrap align-items-center">
+                                    <a href="/account/index" class="cmn-btn">Registration</a>
+                                </div>
+                                <div class="header-action d-flex flex-wrap align-items-center">
+                                    <a href="register.html" class="cmn-btn">Login</a>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+
+        @if (false)
+        {
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color:white; border-bottom:1px solid lightgray;">
+                <img src="~/assets/img/Ascent Financial crest thicker letters-01.jpg" class="navbar-brand img-fluid" alt="Logo" width="60">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mr-5">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Services
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Dashborad</a>
+                                <a class="dropdown-item" href="#">Appoitment</a>
+                                <a class="dropdown-item" href="#">Timings</a>
+                                <a class="dropdown-item" href="#">List</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Subscription</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Community</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Support</a>
+                        </li>
+                        <li class="nav-item ml-lg-5">
+                            <button class="nav-link header-login btn btn-info pl-4 pr-4 pt-1 pb-1" href="login.html" style="color:white;">Register</button>
+                        </li>
+                        <li class="nav-item ml-lg-2 mt-3 mt-lg-0">
+                            <button class="nav-link header-login btn btn-info pl-4 pr-4 pt-1 pb-1" href="login.html" style="color:white;">Login</button>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        }
+
+
+
+       
+    </header>
+
+
+
+
+
+    <div>
+        <main role="main" class="pb-3" >
+            @RenderBody()
+        </main>
+    </div>
+
+
+
+
+    <!-- jQuery -->
+    <script src="~/assets/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JS -->
+    <script src="~/assets/js/popper.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+
+    <!-- Slick JS -->
+    <script src="~/assets/js/slick.js"></script>
+
+    <!-- Custom JS -->
+    <script src="~/assets/js/script.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#navbarDropdown').mouseenter(function () {
+                $('.dropdown-menu').slideToggle(300, "linear");
+            });
+
+            $('.dropdown-menu').mouseleave(function () {
+                $(this).slideToggle(300, "linear");
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var current_fs, next_fs, previous_fs; //fieldsets
+            var opacity;
+            var current = 1;
+            var steps = $("fieldset").length;
+
+            setProgressBar(current);
+
+            $(".next").click(function () {
+
+                current_fs = $(this).parent();
+                next_fs = $(this).parent().next();
+
+                //Add Class Active
+                $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+                //show the next fieldset
+                next_fs.show();
+                //hide the current fieldset with style
+                current_fs.animate({ opacity: 0 }, {
+                    step: function (now) {
+                        // for making fielset appear animation
+                        opacity = 1 - now;
+
+                        current_fs.css({
+                            'display': 'none',
+                            'position': 'relative'
+                        });
+                        next_fs.css({ 'opacity': opacity });
+                    },
+                    duration: 500
+                });
+                setProgressBar(++current);
+            });
+
+            $(".previous").click(function () {
+
+                current_fs = $(this).parent();
+                previous_fs = $(this).parent().prev();
+
+                //Remove class active
+                $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+                //show the previous fieldset
+                previous_fs.show();
+
+                //hide the current fieldset with style
+                current_fs.animate({ opacity: 0 }, {
+                    step: function (now) {
+                        // for making fielset appear animation
+                        opacity = 1 - now;
+
+                        current_fs.css({
+                            'display': 'none',
+                            'position': 'relative'
+                        });
+                        previous_fs.css({ 'opacity': opacity });
+                    },
+                    duration: 500
+                });
+                setProgressBar(--current);
+            });
+
+            function setProgressBar(curStep) {
+                var percent = parseFloat(100 / steps) * curStep;
+                percent = percent.toFixed();
+                $(".progress-bar")
+                    .css("width", percent + "%")
+            }
+
+            $(".submit").click(function () {
+                return false;
+            })
+
+        });
+    </script>
+
+
+
+    <section id="footer">
+        <div class="container">
+            <div class="row text-center text-xs-center text-sm-left text-md-left">
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <h5>Quick links</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                        <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>About</a></li>
+                        <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                        <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                        <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <h5>Quick links</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                        <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>About</a></li>
+                        <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                        <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                        <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <h5>Quick links</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                        <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>About</a></li>
+                        <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                        <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                        <li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i class="fa fa-angle-double-right"></i>Imprint</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                    <ul class="list-unstyled list-inline social text-center">
+                        <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-google-plus"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                    </ul>
+                </div>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                    <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
+                    <p class="h6">© All right Reversed.<a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a></p>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
