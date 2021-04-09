@@ -24,3 +24,18 @@ E:\2021\Pakistan\Azad\Ascent\Services\obj\Debug\netcoreapp3.1\Services.AssemblyI
 E:\2021\Pakistan\Azad\Ascent\Services\obj\Debug\netcoreapp3.1\Services.csproj.CopyComplete
 E:\2021\Pakistan\Azad\Ascent\Services\obj\Debug\netcoreapp3.1\Services.dll
 E:\2021\Pakistan\Azad\Ascent\Services\obj\Debug\netcoreapp3.1\Services.pdb
+I:\Asecnt V2\fintach\Services\bin\Debug\netcoreapp3.1\Services.deps.json
+I:\Asecnt V2\fintach\Services\bin\Debug\netcoreapp3.1\Services.runtimeconfig.json
+I:\Asecnt V2\fintach\Services\bin\Debug\netcoreapp3.1\Services.runtimeconfig.dev.json
+I:\Asecnt V2\fintach\Services\bin\Debug\netcoreapp3.1\Services.dll
+I:\Asecnt V2\fintach\Services\bin\Debug\netcoreapp3.1\Services.pdb
+I:\Asecnt V2\fintach\Services\bin\Debug\netcoreapp3.1\Entities.dll
+I:\Asecnt V2\fintach\Services\bin\Debug\netcoreapp3.1\Entities.pdb
+I:\Asecnt V2\fintach\Services\obj\Debug\netcoreapp3.1\Services.csprojAssemblyReference.cache
+I:\Asecnt V2\fintach\Services\obj\Debug\netcoreapp3.1\Services.AssemblyInfoInputs.cache
+I:\Asecnt V2\fintach\Services\obj\Debug\netcoreapp3.1\Services.AssemblyInfo.cs
+I:\Asecnt V2\fintach\Services\obj\Debug\netcoreapp3.1\Services.csproj.CoreCompileInputs.cache
+I:\Asecnt V2\fintach\Services\obj\Debug\netcoreapp3.1\Services.csproj.CopyComplete
+I:\Asecnt V2\fintach\Services\obj\Debug\netcoreapp3.1\Services.dll
+I:\Asecnt V2\fintach\Services\obj\Debug\netcoreapp3.1\Services.pdb
+I:\Asecnt V2\fintach\Services\obj\Debug\netcoreapp3.1\Services.genruntimeconfig.cache

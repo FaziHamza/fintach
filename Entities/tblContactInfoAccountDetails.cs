@@ -21,6 +21,8 @@ namespace Entities
         public string City { get; set; }
         [Required]
         public string FilePath { get; set; }
+        [NotMapped]
+        public string files1 { get; set; }
         public Int64? UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual tblUser tblUser { get; set; }

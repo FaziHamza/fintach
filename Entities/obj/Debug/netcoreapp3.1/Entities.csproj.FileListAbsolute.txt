@@ -14,3 +14,11 @@ E:\2021\Pakistan\Azad\Ascent\Entities\obj\Debug\netcoreapp3.1\Entities.AssemblyI
 E:\2021\Pakistan\Azad\Ascent\Entities\obj\Debug\netcoreapp3.1\Entities.AssemblyInfo.cs
 E:\2021\Pakistan\Azad\Ascent\Entities\obj\Debug\netcoreapp3.1\Entities.dll
 E:\2021\Pakistan\Azad\Ascent\Entities\obj\Debug\netcoreapp3.1\Entities.pdb
+I:\Asecnt V2\fintach\Entities\bin\Debug\netcoreapp3.1\Entities.deps.json
+I:\Asecnt V2\fintach\Entities\bin\Debug\netcoreapp3.1\Entities.dll
+I:\Asecnt V2\fintach\Entities\bin\Debug\netcoreapp3.1\Entities.pdb
+I:\Asecnt V2\fintach\Entities\obj\Debug\netcoreapp3.1\Entities.AssemblyInfoInputs.cache
+I:\Asecnt V2\fintach\Entities\obj\Debug\netcoreapp3.1\Entities.AssemblyInfo.cs
+I:\Asecnt V2\fintach\Entities\obj\Debug\netcoreapp3.1\Entities.csproj.CoreCompileInputs.cache
+I:\Asecnt V2\fintach\Entities\obj\Debug\netcoreapp3.1\Entities.dll
+I:\Asecnt V2\fintach\Entities\obj\Debug\netcoreapp3.1\Entities.pdb

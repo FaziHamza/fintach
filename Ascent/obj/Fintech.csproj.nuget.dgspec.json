@@ -1,27 +1,22 @@
 {
   "format": 1,
   "restore": {
-    "E:\\2021\\Pakistan\\Azad\\Ascent\\Ascent\\Fintech.csproj": {}
+    "I:\\Asecnt V2\\fintach\\Ascent\\Fintech.csproj": {}
   },
   "projects": {
-    "E:\\2021\\Pakistan\\Azad\\Ascent\\Ascent\\Fintech.csproj": {
+    "I:\\Asecnt V2\\fintach\\Ascent\\Fintech.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\2021\\Pakistan\\Azad\\Ascent\\Ascent\\Fintech.csproj",
+        "projectUniqueName": "I:\\Asecnt V2\\fintach\\Ascent\\Fintech.csproj",
         "projectName": "Fintech",
-        "projectPath": "E:\\2021\\Pakistan\\Azad\\Ascent\\Ascent\\Fintech.csproj",
-        "packagesPath": "C:\\Users\\Fm Tech\\.nuget\\packages\\",
-        "outputPath": "E:\\2021\\Pakistan\\Azad\\Ascent\\Ascent\\obj\\",
+        "projectPath": "I:\\Asecnt V2\\fintach\\Ascent\\Fintech.csproj",
+        "packagesPath": "C:\\Users\\Arfan Ali\\.nuget\\packages\\",
+        "outputPath": "I:\\Asecnt V2\\fintach\\Ascent\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Fm Tech\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Arfan Ali\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.2.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -33,9 +28,10 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "E:\\2021\\Pakistan\\Azad\\Ascent\\Services\\Services.csproj": {
-                "projectPath": "E:\\2021\\Pakistan\\Azad\\Ascent\\Services\\Services.csproj"
+              "I:\\Asecnt V2\\fintach\\Services\\Services.csproj": {
+                "projectPath": "I:\\Asecnt V2\\fintach\\Services\\Services.csproj"
               }
             }
           }
@@ -48,6 +44,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.Identity": {
               "target": "Package",
@@ -84,28 +81,23 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.113\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\2021\\Pakistan\\Azad\\Ascent\\Entities\\Entities.csproj": {
+    "I:\\Asecnt V2\\fintach\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\2021\\Pakistan\\Azad\\Ascent\\Entities\\Entities.csproj",
+        "projectUniqueName": "I:\\Asecnt V2\\fintach\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "E:\\2021\\Pakistan\\Azad\\Ascent\\Entities\\Entities.csproj",
-        "packagesPath": "C:\\Users\\Fm Tech\\.nuget\\packages\\",
-        "outputPath": "E:\\2021\\Pakistan\\Azad\\Ascent\\Entities\\obj\\",
+        "projectPath": "I:\\Asecnt V2\\fintach\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\Arfan Ali\\.nuget\\packages\\",
+        "outputPath": "I:\\Asecnt V2\\fintach\\Entities\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Fm Tech\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Arfan Ali\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.2.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -117,6 +109,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -128,6 +121,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -143,28 +137,23 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.113\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\2021\\Pakistan\\Azad\\Ascent\\Services\\Services.csproj": {
+    "I:\\Asecnt V2\\fintach\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\2021\\Pakistan\\Azad\\Ascent\\Services\\Services.csproj",
+        "projectUniqueName": "I:\\Asecnt V2\\fintach\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "E:\\2021\\Pakistan\\Azad\\Ascent\\Services\\Services.csproj",
-        "packagesPath": "C:\\Users\\Fm Tech\\.nuget\\packages\\",
-        "outputPath": "E:\\2021\\Pakistan\\Azad\\Ascent\\Services\\obj\\",
+        "projectPath": "I:\\Asecnt V2\\fintach\\Services\\Services.csproj",
+        "packagesPath": "C:\\Users\\Arfan Ali\\.nuget\\packages\\",
+        "outputPath": "I:\\Asecnt V2\\fintach\\Services\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Fm Tech\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Arfan Ali\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.2.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -176,9 +165,10 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "E:\\2021\\Pakistan\\Azad\\Ascent\\Entities\\Entities.csproj": {
-                "projectPath": "E:\\2021\\Pakistan\\Azad\\Ascent\\Entities\\Entities.csproj"
+              "I:\\Asecnt V2\\fintach\\Entities\\Entities.csproj": {
+                "projectPath": "I:\\Asecnt V2\\fintach\\Entities\\Entities.csproj"
               }
             }
           }
@@ -191,6 +181,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -228,7 +219,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.113\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
